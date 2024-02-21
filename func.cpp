@@ -1,22 +1,21 @@
 #include <string>
 using namespace std;
 
-string foo(string stroka){
-    string stroka2 = "";
-    int lenst = stroka.length();
-    for (int i = 0; i < lenst; ++i){
-        if (stroka[i] == 'a'){
-            stroka2 += 'b';
-        }
-        else if (stroka[i] == 'b'){
-            stroka2 += 'a';
-        }
-        else if (stroka[i] == 'c'){
-            stroka2 += 'c';
-        }
-        else{
-            stroka2 = "invalid input data";
-            break;
+string foo(const string& stroka) {
+    string stroka2;
+    for (char ch : stroka) {
+        switch(ch) {
+            case 'a':
+                stroka2 += 'b';
+                break;
+            case 'b':
+                stroka2 += 'a';
+                break;
+            case 'c':
+                stroka2 += 'c';
+                break;
+            default:
+                return "invalid input data";
         }
     }
     return stroka2;
